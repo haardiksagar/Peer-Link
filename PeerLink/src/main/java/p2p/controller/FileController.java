@@ -66,6 +66,27 @@ public class FileController {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             /*HttpExchange exchange: This object represents the HTTP request and response. It contains: 
+            ** An HTTP Exchange has both the request and the response section all the time in it 
+            
+            This object also has the URI link in it 
+            HttpExchange Object
+                ├── REQUEST SIDE
+                │   ├── Method: GET
+                │   ├── RequestURI: ← exchange.getRequestURI() returns this
+                │   │   ├── Scheme: http
+                │   │   ├── Host: localhost
+                │   │   ├── Port: 8080
+                │   │   ├── Path: /api/users/123/profile  ← .getPath() extracts this part
+                │   │   ├── Query: active=true&sort=name
+                │   │   └── Fragment: null
+                │   ├── Request Headers:
+                │   │   ├── Host: localhost:8080
+                │   │   └── Authorization: Bearer abc123token
+                │   └── Request Body: [empty for GET]
+                │
+                └── RESPONSE SIDE
+                    └── [response data...]
+
 
             Here's a small EXAMPLE showing what data is available in an HttpExchange object:
             -----------------------
@@ -661,6 +682,7 @@ public class FileController {
             headers.add("Access-Control-Allow-Origin", "*");
             
             // Only allow GET requests for downloads
+            //checks if the request method is NOT "GET"
             if (!exchange.getRequestMethod().equalsIgnoreCase("GET")) {
                 // If the request is not GET, respond with 405 Method Not Allowed
                 String response = "Method Not Allowed";
@@ -683,9 +705,32 @@ public class FileController {
                 // Connect to the file server running on the given port
                 try (Socket socket = new Socket("localhost", port);
                      InputStream socketInput = socket.getInputStream()) {
+                    /*
+                    Socket socket = new Socket("localhost", port); ->
+                    *This creates a new network connection (socket) to the local computer 
+                    (localhost) on the specified port.
+                    *It’s like dialing a phone number to connect to a specific service running on 
+                    your own computer.
                     
+                    InputStream socketInput = socket.getInputStream(); ->
+                    *This gets the input stream from the socket, which lets you read data sent from the 
+                    other side of the connection (the file server).
+                    *Think of it as opening a pipe to receive the file data.
+                    */
+
                     // Create a temporary file to store the downloaded data
                     File tempFile = File.createTempFile("download-", ".tmp");
+                    /*
+                    File.createTempFile("download-", ".tmp"):->
+                    *This creates a new temporary file on your computer.
+                    *The file’s name will start with "download-" and end with ".tmp", with 
+                    some random characters in between (e.g., download-12345.tmp).
+                    *This file is used to store the data you’re about to download from the socket.
+                    
+                    File tempFile = ...:->
+                    This saves the reference to the temporary file so you can write to it and use it later.
+                    */
+
                     // Default filename in case it's not provided by the server
                     String filename = "downloaded-file"; // Default filename
                     
@@ -725,7 +770,7 @@ public class FileController {
                     exchange.sendResponseHeaders(200, tempFile.length());
                     // Write the file data to the response body
                     try (OutputStream os = exchange.getResponseBody();
-                         FileInputStream fis = new FileInputStream(tempFile)) {
+                        FileInputStream fis = new FileInputStream(tempFile)) {
                         byte[] buffer = new byte[4096];
                         int bytesRead;
                         // Read the file in chunks and send each chunk to the client
