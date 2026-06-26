@@ -84,73 +84,66 @@ export default function Home() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-blue-600 mb-2">PeerLink</h1>
-        <p className="text-xl text-gray-600">Secure P2P File Sharing</p>
-      </header>
-      
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <div className="flex border-b mb-6">
+    <div className="w-full max-w-[1440px] mx-auto pb-24">
+      {/* Hero Band */}
+      <div className="w-full py-[96px] px-8 border-b border-[#3c3c3c] flex flex-col items-start justify-center">
+        <h1 className="display-xl mb-4">THE ULTIMATE P2P SHARE.</h1>
+        <p className="title-md max-w-2xl text-[#bbbbbb]">Securely send and receive files directly with peers. No servers. No limits. Engineered precision for your data.</p>
+      </div>
+
+      <div className="w-full px-8 py-[96px]">
+        <div className="flex space-x-8 border-b border-[#3c3c3c] mb-12">
           <button
-            className={`px-4 py-2 font-medium ${
-              activeTab === 'upload'
-                ? 'text-blue-600 border-b-2 border-blue-600'
-                : 'text-gray-500 hover:text-gray-700'
-            }`}
+            className={`category-tab ${activeTab === 'upload' ? 'category-tab-active' : ''}`}
             onClick={() => setActiveTab('upload')}
           >
-            Share a File
+            SHARE A FILE
           </button>
           <button
-            className={`px-4 py-2 font-medium ${
-              activeTab === 'download'
-                ? 'text-blue-600 border-b-2 border-blue-600'
-                : 'text-gray-500 hover:text-gray-700'
-            }`}
+            className={`category-tab ${activeTab === 'download' ? 'category-tab-active' : ''}`}
             onClick={() => setActiveTab('download')}
           >
-            Receive a File
+            RECEIVE A FILE
           </button>
         </div>
         
-        {activeTab === 'upload' ? (
-          <div>
-            <FileUpload onFileUpload={handleFileUpload} isUploading={isUploading} />
-            
-            {uploadedFile && !isUploading && (
-              <div className="mt-4 p-3 bg-gray-50 rounded-md">
-                <p className="text-sm text-gray-600">
-                  Selected file: <span className="font-medium">{uploadedFile.name}</span> ({Math.round(uploadedFile.size / 1024)} KB)
-                </p>
-              </div>
-            )}
-            
-            {isUploading && (
-              <div className="mt-6 text-center">
-                <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
-                <p className="mt-2 text-gray-600">Uploading file...</p>
-              </div>
-            )}
-            
-            <InviteCode port={port} />
-          </div>
-        ) : (
-          <div>
-            <FileDownload onDownload={handleDownload} isDownloading={isDownloading} />
-            
-            {isDownloading && (
-              <div className="mt-6 text-center">
-                <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
-                <p className="mt-2 text-gray-600">Downloading file...</p>
-              </div>
-            )}
-          </div>
-        )}
+        <div className="max-w-3xl">
+          {activeTab === 'upload' ? (
+            <div>
+              <FileUpload onFileUpload={handleFileUpload} isUploading={isUploading} />
+              
+              {uploadedFile && !isUploading && (
+                <div className="mt-8 p-6 bg-[#1a1a1a] border border-[#3c3c3c]">
+                  <p className="body-md">
+                    SELECTED FILE: <span className="font-bold text-white uppercase">{uploadedFile.name}</span> ({Math.round(uploadedFile.size / 1024)} KB)
+                  </p>
+                </div>
+              )}
+              
+              {isUploading && (
+                <div className="mt-8 text-left">
+                  <p className="body-md text-white">UPLOADING FILE...</p>
+                </div>
+              )}
+              
+              <InviteCode port={port} />
+            </div>
+          ) : (
+            <div>
+              <FileDownload onDownload={handleDownload} isDownloading={isDownloading} />
+              
+              {isDownloading && (
+                <div className="mt-8 text-left">
+                  <p className="body-md text-white">DOWNLOADING FILE...</p>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
       
-      <footer className="mt-12 text-center text-gray-500 text-sm">
-        <p>PeerLink &copy; {new Date().getFullYear()} - Secure P2P File Sharing</p>
+      <footer className="w-full px-8 py-16 border-t border-[#3c3c3c]">
+        <p className="caption text-[#7e7e7e]">PEERLINK &copy; {new Date().getFullYear()} — SECURE P2P FILE SHARING</p>
       </footer>
     </div>
   );

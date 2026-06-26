@@ -30,43 +30,43 @@ export default function FileDownload({ onDownload, isDownloading }: FileDownload
   };
   
   return (
-    <div className="space-y-4">
-      <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-        <h3 className="text-lg font-medium text-blue-800 mb-2">Receive a File</h3>
-        <p className="text-sm text-blue-600 mb-0">
+    <div className="w-full">
+      <div className="bg-[#1a1a1a] p-8 border border-[#3c3c3c] mb-8">
+        <h3 className="title-lg text-white mb-2 uppercase">Receive a File</h3>
+        <p className="body-md text-[#bbbbbb] mb-0">
           Enter the invite code shared with you to download the file.
         </p>
       </div>
       
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-8">
         <div>
-          <label htmlFor="inviteCode" className="block text-sm font-medium text-gray-700 mb-1">
-            Invite Code
+          <label htmlFor="inviteCode" className="block label-uppercase text-[#bbbbbb] mb-3">
+            INVITE CODE
           </label>
           <input
             type="text"
             id="inviteCode"
             value={inviteCode}
             onChange={(e) => setInviteCode(e.target.value)}
-            placeholder="Enter the invite code (port number)"
-            className="input-field"
+            placeholder="ENTER PORT NUMBER"
+            className="input-field uppercase placeholder:text-[#7e7e7e]"
             disabled={isDownloading}
             required
           />
-          {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+          {error && <p className="mt-2 body-sm text-[#e22718]">{error}</p>}
         </div>
         
         <button
           type="submit"
-          className="btn-primary flex items-center justify-center w-full"
+          className="btn-primary w-full"
           disabled={isDownloading}
         >
           {isDownloading ? (
-            <span>Downloading...</span>
+            <span>DOWNLOADING...</span>
           ) : (
             <>
-              <FiDownload className="mr-2" />
-              <span>Download File</span>
+              <FiDownload className="w-4 h-4 mr-3" />
+              <span>DOWNLOAD FILE</span>
             </>
           )}
         </button>

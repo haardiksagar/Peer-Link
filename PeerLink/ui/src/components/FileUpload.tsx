@@ -31,23 +31,22 @@ export default function FileUpload({ onFileUpload, isUploading }: FileUploadProp
     <div 
       {...getRootProps()} 
       className={`
-        w-full p-8 border-2 border-dashed rounded-lg text-center cursor-pointer transition-all
-        ${dragActive 
-          ? 'border-blue-500 bg-blue-50' 
-          : 'border-gray-300 hover:border-blue-400 hover:bg-gray-50'
-        }
+        w-full py-16 px-8 bg-[#1a1a1a] border border-[#3c3c3c] text-center cursor-pointer transition-colors
+        ${dragActive ? 'border-white' : 'hover:border-[#7e7e7e]'}
         ${isUploading ? 'opacity-50 pointer-events-none' : ''}
       `}
     >
       <input {...getInputProps()} />
-      <div className="flex flex-col items-center justify-center space-y-3">
-        <div className="p-3 bg-blue-100 rounded-full">
-          <FiUpload className="w-6 h-6 text-blue-500" />
+      <div className="flex flex-col items-center justify-center space-y-6">
+        <div className="btn-icon">
+          <FiUpload className="w-6 h-6 text-white" />
         </div>
-        <p className="text-lg font-medium">Drag & drop a file here, or click to select</p>
-        <p className="text-sm text-gray-500">
-          Share any file with your peers securely
-        </p>
+        <div>
+          <h3 className="title-lg text-white mb-2 uppercase">Select a File to Share</h3>
+          <p className="body-md text-[#bbbbbb]">
+            Drag & drop or click to browse. Secure P2P transfer.
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -2,27 +2,122 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  :root {
+    --color-primary: #ffffff;
+    --color-m-blue-light: #0066b1;
+    --color-m-blue-dark: #1c69d4;
+    --color-m-red: #e22718;
+    --color-electric-blue: #0653b6;
+    
+    --color-canvas: #000000;
+    --color-surface-soft: #0d0d0d;
+    --color-surface-card: #1a1a1a;
+    --color-surface-elevated: #262626;
+    --color-carbon-gray: #2b2b2b;
+    
+    --color-hairline: #3c3c3c;
+    --color-hairline-strong: #262626;
+    
+    --color-on-dark: #ffffff;
+    --color-body: #bbbbbb;
+    --color-body-strong: #e6e6e6;
+    --color-muted: #7e7e7e;
+    
+    --color-warning: #f4b400;
+    --color-success: #0fa336;
+  }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: white;
+  body {
+    color: var(--color-body);
+    background-color: var(--color-canvas);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-on-dark);
+  }
 }
 
 @layer components {
+  /* Typography */
+  .display-xl {
+    @apply text-[80px] font-bold leading-[1.0] tracking-normal uppercase;
+  }
+  .display-lg {
+    @apply text-[56px] font-bold leading-[1.05] tracking-normal uppercase;
+  }
+  .display-md {
+    @apply text-[40px] font-bold leading-[1.1] tracking-normal uppercase;
+  }
+  .display-sm {
+    @apply text-[32px] font-bold leading-[1.15] tracking-normal uppercase;
+  }
+  .title-lg {
+    @apply text-[24px] font-bold leading-[1.3] tracking-normal;
+  }
+  .title-md {
+    @apply text-[20px] font-normal leading-[1.4] tracking-normal;
+  }
+  .title-sm {
+    @apply text-[18px] font-normal leading-[1.4] tracking-normal;
+  }
+  .label-uppercase {
+    @apply text-[14px] font-bold leading-[1.3] uppercase tracking-[1.5px];
+  }
+  .body-md {
+    @apply text-[16px] font-light leading-[1.5] tracking-normal;
+  }
+  .body-sm {
+    @apply text-[14px] font-light leading-[1.5] tracking-normal;
+  }
+  .caption {
+    @apply text-[12px] font-normal leading-[1.4] tracking-[0.5px];
+  }
+  .typography-button {
+    @apply text-[14px] font-bold leading-[1.0] uppercase tracking-[1.5px];
+  }
+
+  /* Structural Components */
+  .m-stripe-divider {
+    @apply h-[4px] w-full flex;
+  }
+  .m-stripe-segment-1 {
+    @apply h-full bg-[#0066b1] w-1/3;
+  }
+  .m-stripe-segment-2 {
+    @apply h-full bg-[#1c69d4] w-1/3;
+  }
+  .m-stripe-segment-3 {
+    @apply h-full bg-[#e22718] w-1/3;
+  }
+  
+  /* Category Tab */
+  .category-tab {
+    @apply label-uppercase text-[#bbbbbb] pb-2 cursor-pointer transition-colors;
+  }
+  .category-tab-active {
+    @apply text-white border-b-2 border-white;
+  }
+
+  /* Buttons */
   .btn-primary {
-    @apply px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors;
+    @apply typography-button h-[48px] px-[32px] flex items-center justify-center bg-black text-white border border-white rounded-none hover:bg-white hover:text-black transition-colors;
   }
   
-  .btn-secondary {
-    @apply px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition-colors;
+  .btn-primary-outline {
+    @apply typography-button h-[48px] px-[32px] flex items-center justify-center bg-transparent text-white border border-white rounded-none hover:bg-white hover:text-black transition-colors;
   }
   
+  .btn-icon {
+    @apply w-[48px] h-[48px] bg-[#1a1a1a] text-white rounded-full flex items-center justify-center hover:bg-[#2b2b2b] transition-colors;
+  }
+
+  .text-link {
+    @apply label-uppercase text-white hover:opacity-80 transition-opacity flex items-center;
+  }
+
+  /* Inputs */
   .input-field {
-    @apply w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+    @apply body-md h-[48px] w-full px-[16px] py-[12px] bg-[#1a1a1a] text-white border border-[#3c3c3c] rounded-none focus:outline-none focus:border-white transition-colors;
   }
 }
