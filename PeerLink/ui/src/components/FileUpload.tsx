@@ -11,14 +11,14 @@ interface FileUploadProps {
 
 export default function FileUpload({ onFileUpload, isUploading }: FileUploadProps) {
   const [dragActive, setDragActive] = useState(false);
-  
+
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (acceptedFiles.length > 0) {
       onFileUpload(acceptedFiles[0]);
     }
   }, [onFileUpload]);
-  
-  const { getRootProps, getInputProps } = useDropzone({ 
+
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     multiple: false,
     onDragEnter: () => setDragActive(true),
@@ -28,8 +28,8 @@ export default function FileUpload({ onFileUpload, isUploading }: FileUploadProp
   });
 
   return (
-    <div 
-      {...getRootProps()} 
+    <div
+      {...getRootProps()}
       className={`
         w-full py-8 px-6 bg-[#1a1a1a] border border-[#3c3c3c] text-center cursor-pointer transition-colors
         ${dragActive ? 'border-white' : 'hover:border-[#7e7e7e]'}
