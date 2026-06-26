@@ -19,7 +19,7 @@ export default function InviteCode({ port }: InviteCodeProps) {
   };
 
   return (
-    <div className="mt-4 p-6 bg-[#1a1a1a] border border-[#3c3c3c]">
+    <div className="mt-4 p-6 bg-[#1a1a1a] border border-[#3c3c3c] rounded-2xl">
       <h3 className="title-lg text-white mb-2 uppercase">File Ready to Share</h3>
       <p className="body-md text-[#bbbbbb] mb-6">
         Share this invite code with anyone you want to share the file with:

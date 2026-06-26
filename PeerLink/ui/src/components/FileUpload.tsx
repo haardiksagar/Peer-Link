@@ -31,7 +31,7 @@ export default function FileUpload({ onFileUpload, isUploading }: FileUploadProp
     <div
       {...getRootProps()}
       className={`
-        w-full py-8 px-6 bg-[#1a1a1a] border border-[#3c3c3c] text-center cursor-pointer transition-colors
+        w-full py-8 px-6 bg-[#1a1a1a] border border-[#3c3c3c] rounded-2xl text-center cursor-pointer transition-colors
         ${dragActive ? 'border-white' : 'hover:border-[#7e7e7e]'}
         ${isUploading ? 'opacity-50 pointer-events-none' : ''}
       `}
