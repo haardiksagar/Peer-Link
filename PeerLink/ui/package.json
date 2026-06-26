@@ -9,12 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-spring/three": "^10.1.2",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@shadergradient/react": "^2.4.20",
+    "@types/three": "^0.185.0",
     "axios": "^1.6.2",
+    "framer-motion": "^12.42.0",
     "next": "^14.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
-    "react-icons": "^4.12.0"
+    "react-icons": "^4.12.0",
+    "three": "^0.185.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

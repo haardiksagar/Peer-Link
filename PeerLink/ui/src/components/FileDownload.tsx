@@ -31,16 +31,16 @@ export default function FileDownload({ onDownload, isDownloading }: FileDownload
   
   return (
     <div className="w-full">
-      <div className="bg-[#1a1a1a] p-8 border border-[#3c3c3c] mb-8">
+      <div className="bg-[#1a1a1a] p-6 border border-[#3c3c3c] mb-6">
         <h3 className="title-lg text-white mb-2 uppercase">Receive a File</h3>
         <p className="body-md text-[#bbbbbb] mb-0">
           Enter the invite code shared with you to download the file.
         </p>
       </div>
       
-      <form onSubmit={handleSubmit} className="space-y-8">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="inviteCode" className="block label-uppercase text-[#bbbbbb] mb-3">
+          <label htmlFor="inviteCode" className="block label-uppercase text-[#bbbbbb] mb-2">
             INVITE CODE
           </label>
           <input

@@ -31,13 +31,13 @@ export default function FileUpload({ onFileUpload, isUploading }: FileUploadProp
     <div 
       {...getRootProps()} 
       className={`
-        w-full py-16 px-8 bg-[#1a1a1a] border border-[#3c3c3c] text-center cursor-pointer transition-colors
+        w-full py-8 px-6 bg-[#1a1a1a] border border-[#3c3c3c] text-center cursor-pointer transition-colors
         ${dragActive ? 'border-white' : 'hover:border-[#7e7e7e]'}
         ${isUploading ? 'opacity-50 pointer-events-none' : ''}
       `}
     >
       <input {...getInputProps()} />
-      <div className="flex flex-col items-center justify-center space-y-6">
+      <div className="flex flex-col items-center justify-center space-y-4">
         <div className="btn-icon">
           <FiUpload className="w-6 h-6 text-white" />
         </div>
