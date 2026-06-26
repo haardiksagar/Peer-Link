@@ -31,7 +31,7 @@ export default function FileDownload({ onDownload, isDownloading }: FileDownload
 
   return (
     <div className="w-full">
-      <div className="bg-[#1a1a1a] p-6 border border-[#3c3c3c] rounded-2xl mb-6">
+      <div className="bg-[#1a1a1a]/40 backdrop-blur-md p-6 border border-[#3c3c3c] rounded-2xl mb-6">
         <h3 className="title-lg text-white mb-2 uppercase">Receive a File</h3>
         <p className="body-md text-[#bbbbbb] mb-0">
           Enter the invite code shared with you to download the file.

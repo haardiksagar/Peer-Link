@@ -113,7 +113,7 @@ export default function Home() {
               <FileUpload onFileUpload={handleFileUpload} isUploading={isUploading} />
               
               {uploadedFile && !isUploading && (
-                <div className="mt-8 p-6 bg-[#1a1a1a] border border-[#3c3c3c]">
+                <div className="mt-8 p-6 bg-[#1a1a1a]/40 backdrop-blur-md border border-[#3c3c3c] rounded-2xl">
                   <p className="body-md">
                     SELECTED FILE: <span className="font-bold text-white uppercase">{uploadedFile.name}</span> ({Math.round(uploadedFile.size / 1024)} KB)
                   </p>
