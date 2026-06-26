@@ -101,11 +101,11 @@
 
   /* Buttons */
   .btn-primary {
-    @apply typography-button h-[48px] px-[32px] flex items-center justify-center bg-black text-white border border-white rounded-none hover:bg-white hover:text-black transition-colors;
+    @apply typography-button h-[48px] px-[32px] flex items-center justify-center bg-black/40 backdrop-blur-md text-white border border-white rounded-xl hover:bg-white hover:text-black transition-colors;
   }
   
   .btn-primary-outline {
-    @apply typography-button h-[48px] px-[32px] flex items-center justify-center bg-transparent text-white border border-white rounded-none hover:bg-white hover:text-black transition-colors;
+    @apply typography-button h-[48px] px-[32px] flex items-center justify-center bg-transparent text-white border border-white rounded-xl hover:bg-white hover:text-black transition-colors;
   }
   
   .btn-icon {
@@ -118,6 +118,6 @@
 
   /* Inputs */
   .input-field {
-    @apply body-md h-[48px] w-full px-[16px] py-[12px] bg-[#1a1a1a] text-white border border-[#3c3c3c] rounded-none focus:outline-none focus:border-white transition-colors;
+    @apply body-md h-[48px] w-full px-[16px] py-[12px] bg-[#1a1a1a]/40 backdrop-blur-md text-white border border-[#3c3c3c] rounded-xl focus:outline-none focus:border-white transition-colors;
   }
 }
