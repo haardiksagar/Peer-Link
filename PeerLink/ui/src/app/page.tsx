@@ -84,15 +84,15 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full max-w-[1440px] mx-auto pb-24">
+    <div className="w-full max-w-[1440px] mx-auto flex flex-col min-h-[calc(100vh-68px)]">
       {/* Hero Band */}
-      <div className="w-full py-[96px] px-8 border-b border-[#3c3c3c] flex flex-col items-start justify-center">
-        <h1 className="display-xl mb-4">THE ULTIMATE P2P SHARE.</h1>
-        <p className="title-md max-w-2xl text-[#bbbbbb]">Securely send and receive files directly with peers. No servers. No limits. Engineered precision for your data.</p>
+      <div className="w-full pt-[32px] pb-[16px] px-8 flex flex-col items-center justify-center text-center">
+        <h1 className="display-md mb-2">THE ULTIMATE P2P SHARE.</h1>
+        <p className="body-md max-w-2xl text-[#bbbbbb]">Securely send and receive files directly with peers. No servers. No limits. Engineered precision for your data.</p>
       </div>
 
-      <div className="w-full px-8 py-[96px]">
-        <div className="flex space-x-8 border-b border-[#3c3c3c] mb-12">
+      <div className="w-full px-8 py-[16px] flex-grow">
+        <div className="flex justify-center space-x-8 border-b border-[#3c3c3c] mb-6">
           <button
             className={`category-tab ${activeTab === 'upload' ? 'category-tab-active' : ''}`}
             onClick={() => setActiveTab('upload')}
@@ -107,7 +107,7 @@ export default function Home() {
           </button>
         </div>
         
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto">
           {activeTab === 'upload' ? (
             <div>
               <FileUpload onFileUpload={handleFileUpload} isUploading={isUploading} />
@@ -142,8 +142,8 @@ export default function Home() {
         </div>
       </div>
       
-      <footer className="w-full px-8 py-16 border-t border-[#3c3c3c]">
-        <p className="caption text-[#7e7e7e]">PEERLINK &copy; {new Date().getFullYear()} — SECURE P2P FILE SHARING</p>
+      <footer className="w-full px-8 py-6 border-t border-[#3c3c3c] mt-auto">
+        <p className="caption text-[#7e7e7e] text-center">PEERLINK &copy; {new Date().getFullYear()} — SECURE P2P FILE SHARING</p>
       </footer>
     </div>
   );
