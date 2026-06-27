@@ -3,14 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   async rewrites() {
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:8080';
     return [
       {
         source: '/api/upload',
-        destination: 'http://localhost:8080/upload',
+        destination: `${backendUrl}/upload`,
       },
       {
         source: '/api/download/:port',
-        destination: 'http://localhost:8080/download/:port',
+        destination: `${backendUrl}/download/:port`,
       },
     ];
   },
