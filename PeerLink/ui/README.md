@@ -73,4 +73,4 @@ java -jar target/p2p-1.0-SNAPSHOT.jar
 
 - `src/app`: Next.js app router pages
 - `src/components`: React components
-- `public`: Static assets
+- `public`: Static assets.
